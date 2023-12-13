@@ -43,7 +43,10 @@ public class Style extends BDDObject{
         return nom;
     }
 
-    public void setNom(String nom) {
+    public void setNom(String nom) throws Exception{
+        if(nom.equals("")){
+            throw new Exception("setNom Style vide");
+        }
         this.nom = nom;
     }
     
