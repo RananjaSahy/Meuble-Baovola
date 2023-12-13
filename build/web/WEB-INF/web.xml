@@ -4,13 +4,35 @@
         <servlet-name>Test</servlet-name>
         <servlet-class>controller.insertion.Test</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InsertionMatiere</servlet-name>
+        <servlet-class>controller.insertion.InsertionMatiere</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertionStyle</servlet-name>
+        <servlet-class>controller.insertion.InsertionStyle</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PreInsertionStyle</servlet-name>
+        <servlet-class>controller.insertion.PreInsertionStyle</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Test</servlet-name>
         <url-pattern>/Test</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertionMatiere</servlet-name>
+        <url-pattern>/InsertionMatiere</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertionStyle</servlet-name>
+        <url-pattern>/InsertionStyle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreInsertionStyle</servlet-name>
+        <url-pattern>/PreInsertionStyle</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 </web-app>

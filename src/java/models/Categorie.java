@@ -40,7 +40,10 @@ public class Categorie extends BDDObject{
         return nom;
     }
 
-    public void setNom(String nom) {
+    public void setNom(String nom) throws Exception{
+        if(nom.equals("")){
+            throw new Exception("setNom Categorie vide");
+        }
         this.nom = nom;
     }
 
