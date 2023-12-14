@@ -100,8 +100,8 @@
         </a>
         <ul id="liste-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="${pageContext.request.contextPath}/Liste/listeMatiereStyle.jsp">
-              <i class="bi bi-circle"></i><span> Liste styles/Matière </span>
+            <a href="${pageContext.request.contextPath}/PreListeStyle">
+              <i class="bi bi-circle"></i><span>Liste styles</span>
             </a>
           </li>
         </ul>

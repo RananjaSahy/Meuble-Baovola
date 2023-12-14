@@ -16,6 +16,14 @@
         <servlet-name>PreInsertionStyle</servlet-name>
         <servlet-class>controller.insertion.PreInsertionStyle</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PreListeStyle</servlet-name>
+        <servlet-class>controller.liste.PreListeStyle</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PreListeMatiereStyle</servlet-name>
+        <servlet-class>controller.liste.PreListeMatiereStyle</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Test</servlet-name>
         <url-pattern>/Test</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>PreInsertionStyle</servlet-name>
         <url-pattern>/PreInsertionStyle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreListeStyle</servlet-name>
+        <url-pattern>/PreListeStyle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreListeMatiereStyle</servlet-name>
+        <url-pattern>/PreListeMatiereStyle</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

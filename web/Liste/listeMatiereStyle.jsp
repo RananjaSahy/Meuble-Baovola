@@ -1,7 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@page import="models.Stylematiere" %>
+<%
+    Stylematiere[] listestylematiere = (Stylematiere[])request.getAttribute("listestylematiere");
+%>
 <%@include file="./../Layout/header.jsp" %>
-
-
   <main id="main" class="main">
 
     <div class="pagetitle">
@@ -19,33 +22,23 @@
         <div class=" offset-2 col-lg-8">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Tableau liste style/matière</h5>
-                  <p><code> Voici la liste de tout les styles et de des matière utilisée</code> </p>
+              <h4 class="card-title">Style : </h4>
+                  <p><code> Voici la liste des matiere qui peut correspondre avec ce style</code> </p>
                   <!-- Bordered Table -->
                   <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th scope="col">Style</th>
-                        <th scope="col">Matière possible</th>
+                        <th>Matières possibles</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">Nom_style_1</th>
-                        <td>
-                          <p> Matière_1 </p>
-                          <p> Matière_2 </p>
-                          <p> Matière_3 </p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Nom_style_1</th>
-                        <td>
-                          <p> Matière_1 </p>
-                          <p> Matière_2 </p>
-                          <p> Matière_3 </p>
-                        </td>
-                      </tr>
+                        <% 
+                            for(Stylematiere stym: listestylematiere){ %>
+                                <tr>
+                                    <td><%=stym.getMatiere().getNom() %></td>
+                                </tr>
+                        <% } %>
+                      
                     </tbody>
                   </table>
                   <!-- End Bordered Table -->
