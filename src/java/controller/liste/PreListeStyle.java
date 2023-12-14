@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.insertion;
+package controller.liste;
 
 import connexion.Connexion;
 import java.io.IOException;
@@ -14,13 +14,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.Matiere;
 import models.Style;
-import models.Stylematiere;
 
 /**
  *
  * @author Sahy
  */
-public class InsertionStyle extends HttpServlet {
+public class PreListeStyle extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,45 +37,22 @@ public class InsertionStyle extends HttpServlet {
         
         Connexion co = new Connexion();
         try{
-            String nom = request.getParameter("nom");
-            String[] matieres = request.getParameterValues("matieres");
             co.openAll();
-            co.getConnectionPostgres().setAutoCommit(false);
-            
-            Style style = new Style(nom);
-            style.insert(co.getConnectionPostgres());
-            
-            for(String idmat : matieres){
-                Stylematiere stym = new Stylematiere(String.valueOf(style.getIdstyle()) , idmat, co.getConnectionPostgres());
-                stym.insert(co.getConnectionPostgres());
-            }
-            
-            co.getConnectionPostgres().commit();
-            out.println("<h3>Style inserée<h3>");
-            out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
+            Style[] listestyle = new Style().find("idstyle>0", co.getConnectionPostgres());
+            request.setAttribute("listestyle", listestyle);
+            this.getServletContext().getRequestDispatcher("/Liste/listeStyle.jsp").forward(request, response);
         }catch(Exception ex){
-            try{
-                co.getConnectionPostgres().rollback();
-                out.print(ex);
-                ex.printStackTrace();
-            }catch(Exception exp){{
-                exp.printStackTrace();
-                out.print(exp);
-            }
             ex.printStackTrace();
             out.print(ex);
             out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
         }finally{
             try{
-                co.getConnectionPostgres().setAutoCommit(true);
-                co.closeAll();    
+                co.closeAll();
             }catch(Exception e){
                 e.printStackTrace();
                 out.print(e);
             }
         }
-    }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

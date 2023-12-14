@@ -8,6 +8,7 @@ package models;
 import generalbdd.BDDObject;
 import generalbdd.annotation.Column;
 import generalbdd.annotation.PrimaryKey;
+import generalbdd.annotation.Table;
 import java.sql.Connection;
 import java.util.Arrays;
 
@@ -15,6 +16,7 @@ import java.util.Arrays;
  *
  * @author Sahy
  */
+@Table(nom = "style")
 public class Style extends BDDObject{
     @PrimaryKey
     @Column(name = "idstyle")

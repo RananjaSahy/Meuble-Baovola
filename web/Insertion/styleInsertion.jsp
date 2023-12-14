@@ -30,7 +30,7 @@
               <h5 class="card-title">Insertion Style</h5>
 
               <!-- General Form Elements -->
-              <form >
+              <form action="${pageContext.request.contextPath}/InsertionStyle" method="get">
                 <div class="row mb-3 mt-5">
                   <label for="inputText" class="col-form-label offset-1 h3">Nom Style</label>
                   <div class=" offset-1 col-sm-10">
@@ -55,6 +55,7 @@
                   </div>
                
 
+                  
                 <div class="row mb-3 mt-5">
                   <div class="offset-5 col-sm-10">
                     <button type="submit" class="btn btn-primary">Valider</button>
