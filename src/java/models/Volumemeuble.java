@@ -19,11 +19,11 @@ import java.util.List;
  *
  * @author Sahy
  */
-@Table(nom = "taille")
-public class Taille extends BDDObject{
+@Table(nom = "volumemeuble")
+public class Volumemeuble extends BDDObject{
     @PrimaryKey
-    @Column(name = "idtaille")
-    private int idtaille;
+    @Column(name = "idvolumemeuble")
+    private int idvolumemeuble;
     @Column(name = "idcategorie")
     private int idcategorie;
     @Column(name = "nom")
@@ -33,12 +33,12 @@ public class Taille extends BDDObject{
 
     Categorie categorie;
     
-    public int getIdtaille() {
-        return idtaille;
+    public int getIdvolumemeuble() {
+        return idvolumemeuble;
     }
 
-    public void setIdtaille(int idtaille) {
-        this.idtaille = idtaille;
+    public void setIdvolumemeuble(int idvolumemeuble) {
+        this.idvolumemeuble = idvolumemeuble;
     }
 
     public int getIdcategorie() {
@@ -69,7 +69,7 @@ public class Taille extends BDDObject{
 
     public void setNom(String nom) throws Exception{
         if(nom.equals("")){
-            throw new Exception("setNom taille vide");
+            throw new Exception("setNom volumemeuble vide");
         }
         this.nom = nom;
     }
@@ -88,42 +88,42 @@ public class Taille extends BDDObject{
     
     
     
-    public Taille(){
+    public Volumemeuble(){
         
     }
     
-    public Taille(String idcategorie, String nom, String valeur, Connection co)throws Exception{
-        this.setIdtaille(0);
+    public Volumemeuble(String idcategorie, String nom, String valeur, Connection co)throws Exception{
+        this.setIdvolumemeuble(0);
         this.setIdcategorieString(idcategorie, co);
         this.setNom(nom);
         this.setValeurString(valeur);
         
     }
 
-    public Taille(int idtaille, int idcategorie, String nom, double valeur, Connection co)throws Exception {
-        this.setIdtaille(idtaille);
+    public Volumemeuble(int idvolumemeuble, int idcategorie, String nom, double valeur, Connection co)throws Exception {
+        this.setIdvolumemeuble(idvolumemeuble);
         this.setIdcategorie(idcategorie,co);
         this.setNom(nom);
         this.setValeur(valeur);
     }
     
     @Override
-    public Taille[] find(String filtre, Connection co)throws Exception{
+    public Volumemeuble[] find(String filtre, Connection co)throws Exception{
         Statement state = co.createStatement();
-        List<Taille> valiny = new ArrayList<>();
+        List<Volumemeuble> valiny = new ArrayList<>();
         try{
-            String sql = "select * taille where "+filtre;
+            String sql = "select * volumemeuble where "+filtre;
             ResultSet res = state.executeQuery(sql);
             while(res.next()){
-                int idtaille = res.getInt("idtaille");
+                int idvolumemeuble = res.getInt("idvolumemeuble");
                 int idcategorie = res.getInt("idcategorie");
                 String nom = res.getString("nom");
                 double valeur = res.getDouble("valeur");
                 
-                Taille taille = new Taille(idtaille, idcategorie, nom, valeur, co);
-                valiny.add(taille);
+                Volumemeuble volumemeuble = new Volumemeuble(idvolumemeuble, idcategorie, nom, valeur, co);
+                valiny.add(volumemeuble);
             }
-            return valiny.toArray(new Taille[valiny.size()]);
+            return valiny.toArray(new Volumemeuble[valiny.size()]);
         }catch(Exception ex){
             throw ex;
         }finally{
@@ -132,8 +132,8 @@ public class Taille extends BDDObject{
         
     }
     
-    public static Taille[] findByIdCategorie(int idcategorie, Connection co)throws Exception{
-        return new Taille().find("idcategorie="+idcategorie, co);
+    public static Volumemeuble[] findByIdCategorie(int idcategorie, Connection co)throws Exception{
+        return new Volumemeuble().find("idcategorie="+idcategorie, co);
     }
     
 }
