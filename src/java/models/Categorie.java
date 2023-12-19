@@ -74,8 +74,8 @@ public class Categorie extends BDDObject{
         return cats[0];
     } 
     
-    public Taille[] getTaille(Connection co)throws Exception{
-        return Taille.findByIdCategorie(this.getIdcategorie(), co);
+    public Volumemeuble[] getVolumemeuble(Connection co)throws Exception{
+        return Volumemeuble.findByIdCategorie(this.getIdcategorie(), co);
     }
     
 }
