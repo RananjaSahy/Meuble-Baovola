@@ -24,6 +24,10 @@
         <servlet-name>PreListeMatiereStyle</servlet-name>
         <servlet-class>controller.liste.PreListeMatiereStyle</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InsertionVolume</servlet-name>
+        <servlet-class>controller.insertion.InsertionVolume</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Test</servlet-name>
         <url-pattern>/Test</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>PreListeMatiereStyle</servlet-name>
         <url-pattern>/PreListeMatiereStyle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertionVolume</servlet-name>
+        <url-pattern>/InsertionVolume</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

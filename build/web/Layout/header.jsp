@@ -91,6 +91,18 @@
               <i class="bi bi-circle"></i><span> Style </span>
             </a>
           </li>
+          
+          <li>
+            <a href="${pageContext.request.contextPath}/Insertion/volume.jsp">
+              <i class="bi bi-circle"></i><span> Volume </span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="${pageContext.request.contextPath}/Insertion/quantiteMatiere.jsp">
+              <i class="bi bi-circle"></i><span> Quantité Matière </span>
+            </a>
+          </li>
 
         </ul>
       </li>
