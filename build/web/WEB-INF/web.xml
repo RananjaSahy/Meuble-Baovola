@@ -28,6 +28,14 @@
         <servlet-name>InsertionVolume</servlet-name>
         <servlet-class>controller.insertion.InsertionVolume</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InsertionCategorie</servlet-name>
+        <servlet-class>controller.insertion.InsertionCategorie</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PreInsertionQuantiteMatiere</servlet-name>
+        <servlet-class>controller.insertion.PreInsertionQuantiteMatiere</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Test</servlet-name>
         <url-pattern>/Test</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>InsertionVolume</servlet-name>
         <url-pattern>/InsertionVolume</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertionCategorie</servlet-name>
+        <url-pattern>/InsertionCategorie</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreInsertionQuantiteMatiere</servlet-name>
+        <url-pattern>/PreInsertionQuantiteMatiere</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

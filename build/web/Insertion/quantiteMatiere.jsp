@@ -1,9 +1,15 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="models.Categorie"%>
+<%@page import="models.Style"%>
+<%@page import="models.Volume"%>
 <%@page import="models.Matiere"%>
 
 <%
-    Matiere[] listematiere = (Matiere[])request.getAttribute("listematiere");
+    Categorie[] categories = (Categorie[])request.getAttribute("categories");
+    Style[] styles = (Style[])request.getAttribute("styles");
+    Volume[] volumes = (Volume[])request.getAttribute("volumes");
+    Matiere[] matieres = (Matiere[])request.getAttribute("matieres");
 %>
 
 <%@include file="./../Layout/header.jsp" %>
@@ -16,7 +22,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Layout/index.jsp">Accueil</a></li>
-          <li class="breadcrumb-item active">Style</li>
+          <li class="breadcrumb-item active">Quantite matiere</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -31,10 +37,26 @@
 
               <!-- General Form Elements -->
               <form action="${pageContext.request.contextPath}/InsertionStyle" method="get">
-                <div class="row mb-3 mt-3">
-                  <label for="inputText" class="col-form-label offset-1 h3">Meuble</label>
+                <div class="row mb-3 mt-2">
+                  <label for="inputText" class="col-form-label offset-1 h3">Catégorie</label>
                   <div class=" offset-1 col-sm-10" id="meuble">
-                      <select name='meuble' class='form-select' placeholder='Choisir le meuble'>
+                      <select name='idmeuble' class='form-select' placeholder='Choisir le meuble' required>
+                          <option disable> Veuillez choisir la catégorie </option>
+                          <% for(Categorie cat : categories){ %>
+                          <option value="<%=cat.getIdcategorie()%>"><%=cat.getNom()%></option>                          
+                            <% } %>
+                      </select>
+                  </div>
+                </div>
+                
+                <div class="row mb-3 mt-2">
+                  <label for="inputText" class="col-form-label offset-1 h3">Style</label>
+                  <div class=" offset-1 col-sm-10" id="style">
+                      <select name='idstyle' class='form-select' placeholder='Choisir le style' required>
+                          <option disable> Veuillez choisir le style </option>
+                          <% for(Style sty : styles){ %>
+                          <option value="<%=sty.getIdstyle()%>"><%=sty.getNom()%></option>                          
+                            <% } %>
                       </select>
                   </div>
                 </div>
@@ -42,16 +64,23 @@
                 <div class="row mb-3 mt-2">
                   <label for="inputText" class="col-form-label offset-1 h3">Volume</label>
                   <div class=" offset-1 col-sm-10">
-                      <select name='volume' class='form-select' placeholder='Choisir le volume'>
-                          <option disable> veuillez choisir le volume </option>
+                      <select name='idvolume' class='form-select' placeholder='Choisir le volume' required>
+                          <option disable> Veuillez choisir le volume </option>
+                          <% for(Volume vol : volumes){ %>
+                          <option value="<%=vol.getIdvolume()%>"><%=vol.getNom()%></option>                          
+                            <% } %>
                       </select> 
                   </div>
                 </div>
                 
                 <div class="row mb-3 mt-2">
-                  <label for="inputText" class="col-form-label offset-1 h3">Matière </label>
+                  <label for="inputText" class="col-form-label offset-1 h3">Matière</label>
                   <div class=" offset-1 col-sm-10">
-                      <select name='matiere' class='form-select' placeholder='Choisir le matière'>
+                      <select name='idmatiere' class='form-select' placeholder='Choisir le matière' required>
+                          <option disable> Veuillez choisir la matière </option>
+                          <% for(Matiere mat : matieres){ %>
+                          <option value="<%=mat.getIdmatiere()%>"><%=mat.getNom()%></option>                          
+                            <% } %>
                       </select>
                   </div>
                 </div>
@@ -59,7 +88,7 @@
                 <div class="row mb-3 mt-5">
                   <label for="inputText" class="col-form-label offset-1 h3">Quantité</label>
                   <div class=" offset-1 col-sm-10">
-                      <input type="number" class="form-control" placeholder="Entrer le nom du style" name="quantite">
+                      <input type="number" class="form-control" placeholder="Entrer la quantité" name="quantite">
                   </div>
                 </div>
                   
@@ -79,32 +108,4 @@
     </section>
 
   </main><!-- End #main -->
-    <script>
-        function InitalizeCategorie() { 
-                var xhr = getXMLHttpRequest();
-
-                xhr.onreadystatechange  = function() { 
-                    if(xhr.readyState  == 4){
-                        if(xhr.status  == 200) {
-                            var retour = JSON.parse(xhr.responseText);
-                            var meuble = document.getElementById('meuble');
-                            meuble.innerHTML = "";
-                            var placeholder = createOptionElement("", "Veuillez choisir une categorie ");
-                            meuble.appendChild(placeholder);
-                            for (var i = 0; i < retour.length; i++) {
-                                var createOption = createOptionElement(retour[i].idcategorie, retour[i].name);
-                                meuble.appendChild(createOption);
-                            }
-                            document.getElementById('meuble').removeAttribute('onclick');
-                            categorie.addEventListener('change', showProduit);
-                        } else {
-                            document.categorie="Error code " + xhr.status;
-                        }
-                    }
-                };
-                xhr.open("GET", "trait.php?action=1",  true); 
-                xhr.send(null); 
-            }
-        
-    </script>
   <%@include file="./../Layout/footer.jsp" %>
