@@ -127,4 +127,12 @@ public class Stylematiere extends BDDObject{
         }
     }
     
+    public static Stylematiere findByIdstyleIdmatiere(int idstyle, int idmatiere, Connection co)throws Exception{
+        Stylematiere[] liste = new Stylematiere().find("idstyle="+idstyle+" and idmatiere="+idmatiere, co);
+        if(liste.length==0){
+            return null;
+        }
+        return liste[0];
+    }
+    
 }

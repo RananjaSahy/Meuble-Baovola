@@ -36,7 +36,7 @@ create table meuble(
     idmeuble serial primary key,
     nom varchar(50),
     idcategorie int references categorie(idcategorie),
-    idstyle idcategorie int references style(idstyle)
+    idstyle int references style(idstyle)
 );
 
 create table stylematiere(
@@ -51,4 +51,12 @@ create table quantitematiere(
     idvolume int references volume(idvolume),
     idmatiere int references matiere(idmatiere),
     quantite double precision
+);
+
+
+create or replace view v_quantitematiere as(
+    select quantitematiere.*,meuble.nom as nommeuble,volume.nom as nomvolume,matiere.nom as nommatiere from quantitematiere
+    join meuble on meuble.idmeuble = quantitematiere.idmeuble
+    join volume on volume.idvolume = quantitematiere.idvolume
+    join matiere on matiere.idmatiere = matiere.idmatiere
 );
