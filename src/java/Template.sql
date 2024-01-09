@@ -11,6 +11,7 @@
 create database meuble;
 \c meuble
 
+
 create table matiere(
     idmatiere serial primary key,
     nom varchar(50) unique
@@ -31,6 +32,13 @@ create table style(
     nom varchar(50) unique
 );
 
+create table meuble(
+    idmeuble serial primary key,
+    nom varchar(50),
+    idcategorie int references categorie(idcategorie),
+    idstyle idcategorie int references style(idstyle)
+);
+
 create table stylematiere(
     idstylematiere serial primary key,
     idstyle int references style(idstyle),
@@ -39,8 +47,8 @@ create table stylematiere(
 
 create table quantitematiere(
     idquantitematiere serial primary key,
+    idmeuble int references meuble(idmeuble),
     idvolume int references volume(idvolume),
-    idstyle int references style(idstyle),
     idmatiere int references matiere(idmatiere),
-    quantite decimal
+    quantite double precision
 );

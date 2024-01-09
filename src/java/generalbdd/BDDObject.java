@@ -95,8 +95,8 @@ public class BDDObject {
             filtre = this.getColumnName(attribut) + "=" + attribut.get(this);
         }
         Statement state = connexion.createStatement();
-        //System.out.println(
-          //      "Filtre : " + "SELECT * FROM " + this.getClass().getAnnotation(Table.class).nom() + " where " + filtre);
+        System.out.println(
+                "Filtre : " + "SELECT * FROM " + this.getClass().getAnnotation(Table.class).nom() + " where " + filtre);
         ResultSet result = state
                 .executeQuery("SELECT * FROM " + this.getClass().getAnnotation(Table.class).nom() + " where " + filtre);
         List<Object> objets = new ArrayList<>();

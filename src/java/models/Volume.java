@@ -71,7 +71,8 @@ public class Volume extends BDDObject{
         Statement state = co.createStatement();
         List<Volume> valiny = new ArrayList<>();
         try{
-            String sql = "select * volume where "+filtre;
+            String sql = "select * from volume where "+filtre;
+            System.out.println(sql);
             ResultSet res = state.executeQuery(sql);
             while(res.next()){
                 int idvolume = res.getInt("idvolume");
