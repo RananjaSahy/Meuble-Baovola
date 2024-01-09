@@ -24,12 +24,9 @@ public class Quantitematiere extends BDDObject {
     @PrimaryKey
     @Column(name = "idquantitematiere")
     private int idquantitematiere;
-    @Column(name = "idcategorie")
-    private int idcategorie;
-    private String nomcategorie;
-    @Column(name = "idstyle")
-    private int idstyle;
-    private String nomstyle;
+    @Column(name = "idmeuble")
+    private int idmeuble;
+    private String nommeuble;
     @Column(name = "idvolume")
     private int idvolume;
     private String nomvolume;
@@ -47,36 +44,20 @@ public class Quantitematiere extends BDDObject {
         this.idquantitematiere = idquantitematiere;
     }
 
-    public int getIdcategorie() {
-        return idcategorie;
+    public int getIdmeuble() {
+        return idmeuble;
     }
 
-    public void setIdcategorie(int idcategorie) {
-        this.idcategorie = idcategorie;
+    public void setIdmeuble(int idmeuble) {
+        this.idmeuble = idmeuble;
     }
 
-    public String getNomcategorie() {
-        return nomcategorie;
+    public void setNommeuble(String nommeuble) {
+        this.nommeuble = nommeuble;
     }
 
-    public void setNomcategorie(String nomcategorie) {
-        this.nomcategorie = nomcategorie;
-    }
-
-    public int getIdstyle() {
-        return idstyle;
-    }
-
-    public void setIdstyle(int idstyle) {
-        this.idstyle = idstyle;
-    }
-
-    public String getNomstyle() {
-        return nomstyle;
-    }
-
-    public void setNomstyle(String nomstyle) {
-        this.nomstyle = nomstyle;
+    public String getNommeuble() {
+        return nommeuble;
     }
 
     public int getIdvolume() {
@@ -125,21 +106,18 @@ public class Quantitematiere extends BDDObject {
     public Quantitematiere() {
     }
 
-    public Quantitematiere(int idquantitematiere, int idcategorie, int idstyle, int idvolume, int idmatiere, double quantite) throws Exception{
+    public Quantitematiere(int idquantitematiere, int idmeuble, int idvolume, int idmatiere, double quantite) throws Exception{
         this.setIdquantitematiere(idquantitematiere);
-        this.setIdcategorie(idcategorie);
-        this.setIdstyle(idstyle);
+        this.setIdmeuble(idmeuble);
         this.setIdvolume(idvolume);
         this.setIdmatiere(idmatiere);
         this.setQuantite(quantite);
     }
 
-    public Quantitematiere(int idquantitematiere, int idcategorie, String nomcategorie, int idstyle, String nomstyle, int idvolume, String nomvolume, int idmatiere, String nommatiere, double quantite) throws Exception{
+    public Quantitematiere(int idquantitematiere, int idmeuble,String nommeuble, int idvolume, String nomvolume, int idmatiere, String nommatiere, double quantite) throws Exception{
         this.setIdquantitematiere(idquantitematiere);
-        this.setIdcategorie(idcategorie);
-        this.setNomcategorie(nomcategorie);
-        this.setIdstyle(idstyle);
-        this.setNomstyle(nomstyle);
+        this.setIdmeuble(idmeuble);
+        this.setNommeuble(nommeuble);
         this.setIdvolume(idvolume);
         this.setNomvolume(nomvolume);
         this.setIdmatiere(idmatiere);
@@ -157,17 +135,15 @@ public class Quantitematiere extends BDDObject {
             while (res.next()) {
 
                 int idquantitematiere = res.getInt("idquantitematiere");
-                int idcategorie = res.getInt("idcategorie");
-                String nomcategorie = res.getString("nomcategorie");
-                int idstyle = res.getInt("idstyle");
-                String nomstyle = res.getString("nomstyle");
+                int idmeuble = res.getInt("idmeuble");
+                String nommeuble = res.getString("nommeuble");
                 int idvolume = res.getInt("idvolume");
                 String nomvolume= res.getString("nomvolume");
                 int idmatiere = res.getInt("idmatiere");
                 String nommatiere = res.getString("nommatiere");
                 double quantite =res.getDouble("quantite");
 
-                Quantitematiere qm = new Quantitematiere(idquantitematiere, idcategorie, nomcategorie, idstyle, nomstyle, idvolume, nomvolume, idmatiere, nommatiere, quantite);
+                Quantitematiere qm = new Quantitematiere(idquantitematiere, idmeuble, nommeuble, idvolume, nomvolume, idmatiere, nommatiere, quantite);
                 valiny.add(qm);
             }
             return valiny.toArray(new Quantitematiere[valiny.size()]);
@@ -176,16 +152,37 @@ public class Quantitematiere extends BDDObject {
         } finally {
             state.close();
         }
-
     }
 
-    public Quantitematiere findByIdcategorieIdstyleIdvolumeIdmatiere(int idcategorie, int idstyle, int idvolume, int idmatiere, Connection co)throws Exception{
-        Quantitematiere[] liste = new Quantitematiere().find("idcategorie="+idcategorie+" and idstyle="+idstyle+" and idvolume="+idvolume+" and idmatiere="+idmatiere, co);
+    public static Quantitematiere[] findByIdMatiere(int idmatiere,Connection co)throws Exception{
+        return new Quantitematiere().find("idmatiere="+idmatiere,co);
+    }
+    
+    public static Quantitematiere findById(int idquantitematiere,Connection co)throws Exception{
+        Quantitematiere[] liste = new Quantitematiere().find("idquantitematiere="+idquantitematiere,co);
+        if(liste.length == 0){
+            throw new Exception("Quantitematiere innexistante");
+        }
+        return liste[0];
+    }
+    
+    public static Quantitematiere findByIdmeubleIdvolumeIdmatiere(int idmeuble, int idvolume, int idmatiere, Connection co)throws Exception{
+        Quantitematiere[] liste = new Quantitematiere().find("idmeuble="+idmeuble+" and idvolume="+idvolume+" and idmatiere="+idmatiere, co);
         if(liste.length==0){
             return null;
         }
         return liste[0];
     }
     
+    public void isInserable(Connection co)throws Exception{
+        if(Quantitematiere.findByIdmeubleIdvolumeIdmatiere(this.getIdmeuble(),this.getIdvolume(),this.getIdmatiere(), co)!=null){
+            throw new Exception("Quantitematiere deja existant");
+        }
+    }
     
+    @Override
+    public void insert(Connection co)throws Exception{
+        this.isInserable(co);
+        super.insert(co);
+    }
 }
