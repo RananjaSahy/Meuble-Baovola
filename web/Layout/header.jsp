@@ -123,6 +123,12 @@
                                 <i class="bi bi-circle"></i><span>Liste styles</span>
                             </a>
                         </li>
+                        
+                        <li>
+                            <a href="${pageContext.request.contextPath}/PreListParMatiere">
+                                <i class="bi bi-circle"></i><span>Liste par matière</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
