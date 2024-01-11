@@ -14,7 +14,8 @@ create database meuble;
 
 create table matiere(
     idmatiere serial primary key,
-    nom varchar(50) unique
+    nom varchar(50) unique,
+    prixunitaire double precision
 );
 
 create table categorie(
@@ -55,8 +56,12 @@ create table quantitematiere(
 
 
 create or replace view v_quantitematiere as(
-    select quantitematiere.*,meuble.nom as nommeuble,volume.nom as nomvolume,matiere.nom as nommatiere from quantitematiere
+    select quantitematiere.*,meuble.nom as nommeuble,volume.nom as nomvolume,matiere.nom as nommatiere,matiere.prixunitaire, (matiere.prixunitaire*quantitematiere.quantite) as total from quantitematiere
     join meuble on meuble.idmeuble = quantitematiere.idmeuble
     join volume on volume.idvolume = quantitematiere.idvolume
-    join matiere on matiere.idmatiere = matiere.idmatiere
+    join matiere on matiere.idmatiere = quantitematiere.idmatiere
+);
+
+create or replace view meublevolume as(
+    select idmeuble,nommeuble,idvolume,nomvolume,sum(total) as prixfabrication from v_quantitematiere group by idmeuble,idvolume,nommeuble,nomvolume order by idmeuble
 );

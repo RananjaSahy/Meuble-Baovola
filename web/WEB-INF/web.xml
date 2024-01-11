@@ -37,12 +37,20 @@
         <servlet-class>controller.insertion.PreInsertionQuantiteMatiere</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>PreListParMatiere</servlet-name>
+        <servlet-class>controller.liste.PreListParMatiere</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MeublePrixFabrication</servlet-name>
+        <servlet-class>controller.liste.MeublePrixFabrication</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>InsertionQuantiteMatiere</servlet-name>
         <servlet-class>controller.insertion.InsertionQuantiteMatiere</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>PreParMatiere</servlet-name>
-        <servlet-class>controller.liste.PreParMatiere</servlet-class>
+        <servlet-name>PreListeParMatiere</servlet-name>
+        <servlet-class>controller.liste.PreListeParMatiere</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListParMatiere</servlet-name>
@@ -89,21 +97,26 @@
         <url-pattern>/PreInsertionQuantiteMatiere</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>PreListParMatiere</servlet-name>
+        <url-pattern>/PreListParMatiere</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MeublePrixFabrication</servlet-name>
+        <url-pattern>/MeublePrixFabrication</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>InsertionQuantiteMatiere</servlet-name>
         <url-pattern>/InsertionQuantiteMatiere</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PreParMatiere</servlet-name>
-        <url-pattern>/PreParMatiere</url-pattern>
+        <servlet-name>PreListeParMatiere</servlet-name>
+        <url-pattern>/PreListeParMatiere</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListParMatiere</servlet-name>
         <url-pattern>/ListParMatiere</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PreListParMatiere</servlet-name>
-        <url-pattern>/PreListParMatiere</url-pattern>
-    </servlet-mapping>
+
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

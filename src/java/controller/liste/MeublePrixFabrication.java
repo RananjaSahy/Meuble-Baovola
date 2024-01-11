@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package controller.liste;
 
@@ -12,14 +11,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import models.MeubleVolume;
 import models.Style;
-import models.Stylematiere;
 
 /**
  *
  * @author Sahy
  */
-public class PreListeMatiereStyle extends HttpServlet {
+public class MeublePrixFabrication extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,9 +37,12 @@ public class PreListeMatiereStyle extends HttpServlet {
         Connexion co = new Connexion();
         try{
             co.openAll();
-            Stylematiere[] listestylemat = new Stylematiere().find("idstyle="+request.getParameter("idstyle"), co.getConnectionPostgres());
-            request.setAttribute("listestylematiere", listestylemat);
-            this.getServletContext().getRequestDispatcher("/Liste/listeMatiereStyle.jsp").forward(request, response);
+            double prixmin = Double.parseDouble(request.getParameter("prixmin"));
+            double prixmax = Double.parseDouble(request.getParameter("prixmax"));
+            
+            MeubleVolume[] mv = MeubleVolume.find("where prixfabrication>="+prixmin+" and prixfabrication<="+prixmax+" order by prixfabrication" , co.getConnectionPostgres());
+            request.setAttribute("meublevolumes", mv);
+            this.getServletContext().getRequestDispatcher("/Liste/meubleprixfabrication.jsp").forward(request, response);
         }catch(Exception ex){
             ex.printStackTrace();
             out.print(ex);

@@ -26,7 +26,7 @@ public class Connexion {
     public void openPostgres()throws Exception{
         if(this.getConnectionPostgres()==null || this.getConnectionPostgres().isClosed()){
             Class.forName("org.postgresql.Driver");
-            Connection co =  DriverManager.getConnection("jdbc:postgresql://localhost:5432/meuble","postgres","Soljah");
+            Connection co =  DriverManager.getConnection("jdbc:postgresql://localhost:5432/meuble","postgres","penguin");
             this.setConnectionPostgres(co);
         }
     }

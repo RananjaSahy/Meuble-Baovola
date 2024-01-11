@@ -8,10 +8,10 @@ package controller.insertion;
 import connexion.Connexion;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import models.Matiere;
 
 /**
@@ -36,8 +36,10 @@ public class InsertionMatiere extends HttpServlet {
         Connexion co = new Connexion();
         try{
             String nom = request.getParameter("nom");
+            double prixu = Double.parseDouble(request.getParameter("prixunitaire"));
             co.openAll();
-            Matiere matiere = new Matiere(nom);
+            
+            Matiere matiere = new Matiere(nom,prixu);
             matiere.insert(co.getConnectionPostgres());
             out.println("<h3>Matière inserée<h3>");
             out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");

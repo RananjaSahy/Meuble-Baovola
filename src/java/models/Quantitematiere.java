@@ -33,8 +33,10 @@ public class Quantitematiere extends BDDObject {
     @Column(name = "idmatiere")
     private int idmatiere;
     private String nommatiere;
+    private double prixunitaire;
     @Column(name = "quantite")
     private double quantite;
+    private double total;
 
     public int getIdquantitematiere() {
         return idquantitematiere;
@@ -103,6 +105,24 @@ public class Quantitematiere extends BDDObject {
         this.quantite = quantite;
     }
 
+    public double getPrixunitaire() {
+        return prixunitaire;
+    }
+
+    public void setPrixunitaire(double prixunitaire) {
+        this.prixunitaire = prixunitaire;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    
+    
     public Quantitematiere() {
     }
 
@@ -114,7 +134,7 @@ public class Quantitematiere extends BDDObject {
         this.setQuantite(quantite);
     }
 
-    public Quantitematiere(int idquantitematiere, int idmeuble,String nommeuble, int idvolume, String nomvolume, int idmatiere, String nommatiere, double quantite) throws Exception{
+    public Quantitematiere(int idquantitematiere, int idmeuble,String nommeuble, int idvolume, String nomvolume, int idmatiere, String nommatiere,double prixunitaire, double quantite, double total) throws Exception{
         this.setIdquantitematiere(idquantitematiere);
         this.setIdmeuble(idmeuble);
         this.setNommeuble(nommeuble);
@@ -122,7 +142,9 @@ public class Quantitematiere extends BDDObject {
         this.setNomvolume(nomvolume);
         this.setIdmatiere(idmatiere);
         this.setNommatiere(nommatiere);
+        this.setPrixunitaire(prixunitaire);
         this.setQuantite(quantite);
+        this.setTotal(total);
     }
 
     public Quantitematiere[] find(String filtre, Connection co) throws Exception {
@@ -141,9 +163,11 @@ public class Quantitematiere extends BDDObject {
                 String nomvolume= res.getString("nomvolume");
                 int idmatiere = res.getInt("idmatiere");
                 String nommatiere = res.getString("nommatiere");
+                double prixunitaire = res.getDouble("prixunitaire");
                 double quantite =res.getDouble("quantite");
+                double total = res.getDouble("total");
 
-                Quantitematiere qm = new Quantitematiere(idquantitematiere, idmeuble, nommeuble, idvolume, nomvolume, idmatiere, nommatiere, quantite);
+                Quantitematiere qm = new Quantitematiere(idquantitematiere, idmeuble, nommeuble, idvolume, nomvolume, idmatiere, nommatiere, prixunitaire, quantite, total);
                 valiny.add(qm);
             }
             return valiny.toArray(new Quantitematiere[valiny.size()]);
@@ -187,4 +211,6 @@ public class Quantitematiere extends BDDObject {
         this.isInserable(co);
         super.insert(co);
     }
+    
+    
 }

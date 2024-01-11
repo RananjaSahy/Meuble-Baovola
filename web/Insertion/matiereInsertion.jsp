@@ -32,7 +32,12 @@
                     <input type="text" class="form-control" placeholder="Entrer le nom de la matière" name="nom">
                   </div>
                 </div>
-               
+               <div class="row mb-3 mt-5">
+                  <label for="inputText" class="col-form-label offset-1 h3">Prix Unitaire</label>
+                  <div class=" offset-1 col-sm-10">
+                    <input type="number" class="form-control" placeholder="Entrer Prix unitaire" name="prixunitaire">
+                  </div>
+                </div>
 
                 <div class="row mb-3 mt-5">
                   <div class="offset-5 col-sm-10">
