@@ -63,7 +63,7 @@ public class Meuble extends BDDObject{
     }
 
     public int getIdstyle() {
-        return idcategorie;
+        return idstyle;
     }
 
     public void setIdstyle(int idstyle) throws Exception{
@@ -112,7 +112,7 @@ public class Meuble extends BDDObject{
             throw new Exception("meuble innexistante");
         }
         return cats[0];
-    } 
+    }
     
     
 }

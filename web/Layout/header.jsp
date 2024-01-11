@@ -41,7 +41,7 @@
             <div class="d-flex align-items-center justify-content-between">
                 <a href="${pageContext.request.contextPath}/Layout/index.jsp" class="logo d-flex align-items-center">
                     <img src="${pageContext.request.contextPath}/assets/img/logo.png" alt="">
-                    <span class="d-none d-lg-block">Gestion de Matière</span>
+                    <span class="d-none d-lg-block">Gestion de MatiÃ¨re</span>
                 </a>
                 <i class="bi bi-list toggle-sidebar-btn"></i>
             </div><!-- End Logo -->
@@ -83,13 +83,13 @@
 
                         <li>
                             <a href="${pageContext.request.contextPath}/Insertion/categorieInsertion.jsp">
-                                <i class="bi bi-circle"></i><span> Catégorie </span>
+                                <i class="bi bi-circle"></i><span> CatÃ©gorie </span>
                             </a>
                         </li>
                         <li>
 
                             <a href="${pageContext.request.contextPath}/Insertion/matiereInsertion.jsp">
-                                <i class="bi bi-circle"></i><span> Matière </span>
+                                <i class="bi bi-circle"></i><span> MatiÃ¨re </span>
                             </a>
                         </li>
 
@@ -100,6 +100,12 @@
                         </li>
 
                         <li>
+                            <a href="${pageContext.request.contextPath}/PreInsertionMeuble">
+                                <i class="bi bi-circle"></i><span> Meuble </span>
+                            </a>
+                        </li>
+                        
+                        <li>
                             <a href="${pageContext.request.contextPath}/Insertion/volume.jsp">
                                 <i class="bi bi-circle"></i><span> Volume </span>
                             </a>
@@ -107,7 +113,7 @@
 
                         <li>
                             <a href="${pageContext.request.contextPath}/PreInsertionQuantiteMatiere">
-                                <i class="bi bi-circle"></i><span> Quantité Matière </span>
+                                <i class="bi bi-circle"></i><span> QuantitÃ© MatiÃ¨re </span>
                             </a>
                         </li>
 
@@ -123,10 +129,16 @@
                                 <i class="bi bi-circle"></i><span>Liste styles</span>
                             </a>
                         </li>
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/Liste/formMeublePrixfabrication.jsp">
+                                <i class="bi bi-circle"></i><span>Recherche par prix</span>
+
                         
                         <li>
                             <a href="${pageContext.request.contextPath}/PreListParMatiere">
-                                <i class="bi bi-circle"></i><span>Liste par matière</span>
+                                <i class="bi bi-circle"></i><span>Liste par matiÃ¨re</span>
+
                             </a>
                         </li>
                     </ul>

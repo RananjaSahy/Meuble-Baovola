@@ -24,7 +24,8 @@ public class Matiere extends BDDObject{
     private int idmatiere;
     @Column(name = "nom")
     private String nom;
-
+    @Column(name = "prixunitaire")
+    private double prixunitaire;
     public int getIdmatiere() {
         return idmatiere;
     }
@@ -46,19 +47,30 @@ public class Matiere extends BDDObject{
         }
         this.nom = nom;
     }
+
+    public double getPrixunitaire() {
+        return prixunitaire;
+    }
+
+    public void setPrixunitaire(double prixunitaire) {
+        this.prixunitaire = prixunitaire;
+    }
+    
     
     public Matiere(){
         
     }
 
-    public Matiere(int idmatiere, String nom) throws Exception{
+    public Matiere(int idmatiere, String nom,double prixunitaire) throws Exception{
         this.setIdmatiere(idmatiere);
         this.setNom(nom);
+        this.setPrixunitaire(prixunitaire);
     }
     
-    public Matiere(String nom)throws Exception{
+    public Matiere(String nom,double prixunitaire)throws Exception{
         this.setIdmatiere(0);
         this.setNom(nom);
+        this.setPrixunitaire(prixunitaire);
     }
     
     @Override
@@ -70,7 +82,7 @@ public class Matiere extends BDDObject{
     public static Matiere findById(int id, Connection co)throws Exception{
         Matiere[] matieres = new Matiere().find("idmatiere="+id, co);
         if(matieres.length == 0){
-            throw new Exception("Style innexistant");
+            throw new Exception("matiere innexistant");
         }
         return matieres[0];
     }

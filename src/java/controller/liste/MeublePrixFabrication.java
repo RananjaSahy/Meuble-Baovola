@@ -1,24 +1,24 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.insertion;
+package controller.liste;
 
 import connexion.Connexion;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import models.Matiere;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import models.MeubleVolume;
+import models.Style;
 
 /**
  *
  * @author Sahy
  */
-public class InsertionMatiere extends HttpServlet {
+public class MeublePrixFabrication extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,16 +33,16 @@ public class InsertionMatiere extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
         Connexion co = new Connexion();
         try{
-            String nom = request.getParameter("nom");
-            double prixu = Double.parseDouble(request.getParameter("prixunitaire"));
             co.openAll();
+            double prixmin = Double.parseDouble(request.getParameter("prixmin"));
+            double prixmax = Double.parseDouble(request.getParameter("prixmax"));
             
-            Matiere matiere = new Matiere(nom,prixu);
-            matiere.insert(co.getConnectionPostgres());
-            out.println("<h3>Matière inserée<h3>");
-            out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
+            MeubleVolume[] mv = MeubleVolume.find("where prixfabrication>="+prixmin+" and prixfabrication<="+prixmax+" order by prixfabrication" , co.getConnectionPostgres());
+            request.setAttribute("meublevolumes", mv);
+            this.getServletContext().getRequestDispatcher("/Liste/meubleprixfabrication.jsp").forward(request, response);
         }catch(Exception ex){
             ex.printStackTrace();
             out.print(ex);
