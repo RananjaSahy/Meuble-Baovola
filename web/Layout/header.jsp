@@ -100,6 +100,12 @@
                         </li>
 
                         <li>
+                            <a href="${pageContext.request.contextPath}/PreInsertionMeuble">
+                                <i class="bi bi-circle"></i><span> Meuble </span>
+                            </a>
+                        </li>
+                        
+                        <li>
                             <a href="${pageContext.request.contextPath}/Insertion/volume.jsp">
                                 <i class="bi bi-circle"></i><span> Volume </span>
                             </a>
@@ -121,6 +127,11 @@
                         <li>
                             <a href="${pageContext.request.contextPath}/PreListeStyle">
                                 <i class="bi bi-circle"></i><span>Liste styles</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/Liste/formMeublePrixfabrication.jsp">
+                                <i class="bi bi-circle"></i><span>Recherche par prix</span>
                             </a>
                         </li>
                     </ul>

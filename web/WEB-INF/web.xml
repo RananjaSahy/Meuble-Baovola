@@ -36,6 +36,10 @@
         <servlet-name>PreInsertionQuantiteMatiere</servlet-name>
         <servlet-class>controller.insertion.PreInsertionQuantiteMatiere</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MeublePrixFabrication</servlet-name>
+        <servlet-class>controller.liste.MeublePrixFabrication</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Test</servlet-name>
         <url-pattern>/Test</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>PreInsertionQuantiteMatiere</servlet-name>
         <url-pattern>/PreInsertionQuantiteMatiere</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MeublePrixFabrication</servlet-name>
+        <url-pattern>/MeublePrixFabrication</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
