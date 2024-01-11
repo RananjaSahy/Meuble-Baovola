@@ -1,19 +1,23 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller.liste;
 
+import connexion.Connexion;
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+
 /**
  *
- * @author RdjcMada
+ * @author Sahy
  */
 public class ListParMatiere extends HttpServlet {
 
@@ -29,17 +33,29 @@ public class ListParMatiere extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ListParMatiere</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ListParMatiere at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        PrintWriter out = response.getWriter();
+        Connexion co = new Connexion();
+        try{
+            ///data 
+            int idmatiere = Integer.parseInt(request.getParameter("idmatiere"));
+            
+            ///Treatment
+            co.openAll();
+            Quantitematiere[] qttMatiere = new Quantitematiere().findByIdMatiere(idmatiere, co.getConnectionPostgres());
+            
+            request.setAttribute("qttMatiere", qttMatiere);
+            this.getServletContext().getRequestDispatcher("/Liste/listParMatiere.jsp").forward(request, response);
+        }catch(Exception ex){
+            ex.printStackTrace();
+            out.print(ex);
+            out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
+        }finally{
+            try{
+                co.closeAll();
+            }catch(Exception e){
+                e.printStackTrace();
+                out.print(e);
+            }
         }
     }
 

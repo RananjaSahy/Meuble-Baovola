@@ -32,7 +32,7 @@
               <!-- General Form Elements -->
               <form action="${pageContext.request.contextPath}/ListParMatiere" method="get">
                 
-                <div class="row mb-3 mt-2">
+                <div class="row mb-3 mt-4">
                   <label for="inputText" class="col-form-label offset-1 h3">Matière</label>
                   <div class=" offset-1 col-sm-10">
                       <select name='idmatiere' class='form-select' placeholder='Choisir le matière' required>
