@@ -83,13 +83,13 @@
 
                         <li>
                             <a href="${pageContext.request.contextPath}/Insertion/categorieInsertion.jsp">
-                                <i class="bi bi-circle"></i><span> Cat√©gorie </span>
+                                <i class="bi bi-circle"></i><span> CatÈgorie </span>
                             </a>
                         </li>
                         <li>
 
                             <a href="${pageContext.request.contextPath}/Insertion/matiereInsertion.jsp">
-                                <i class="bi bi-circle"></i><span> Mati√®re </span>
+                                <i class="bi bi-circle"></i><span> Matiere </span>
                             </a>
                         </li>
 
@@ -113,7 +113,7 @@
 
                         <li>
                             <a href="${pageContext.request.contextPath}/PreInsertionQuantiteMatiere">
-                                <i class="bi bi-circle"></i><span> Quantit√© Mati√®re </span>
+                                <i class="bi bi-circle"></i><span> QuantitÈ MatiËre </span>
                             </a>
                         </li>
 
@@ -133,11 +133,11 @@
                         <li>
                             <a href="${pageContext.request.contextPath}/Liste/formMeublePrixfabrication.jsp">
                                 <i class="bi bi-circle"></i><span>Recherche par prix</span>
-
+                            </a>
                         
                         <li>
                             <a href="${pageContext.request.contextPath}/PreListParMatiere">
-                                <i class="bi bi-circle"></i><span>Liste par mati√®re</span>
+                                <i class="bi bi-circle"></i><span>Liste par matiËre</span>
 
                             </a>
                         </li>
