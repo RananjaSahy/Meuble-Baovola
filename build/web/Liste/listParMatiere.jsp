@@ -1,8 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%@page import="models.Stylematiere" %>
+<%@page import="models.Quantitematiere" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="java.util.List" %>
+
 <%
-    Stylematiere[] listestylematiere = (Stylematiere[])request.getAttribute("listestylematiere");
+    Quantitematiere[] quantiteMatiere = (Quantitematiere[])request.getAttribute("qttMatiere");
 %>
 <%@include file="./../Layout/header.jsp" %>
   <main id="main" class="main">
@@ -21,23 +24,29 @@
       <div class="row">
         <div class=" offset-2 col-lg-8">
           <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Style : <%=listestylematiere[0].getStyle().getNom()%></h4>
-                  <p><code> Voici la liste des matières qui peut correspondre avec ce style</code> </p>
+            <div class="card-body mt-5">
+                  <p><code> Voici la liste des meubles ayant pour matière : <%=quantiteMatiere[0].getNommatiere()%> </code> </p>
                   <!-- Bordered Table -->
                   <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th>Matières possibles</th>
+                        <th>Nom Meuble</th>
                       </tr>
                     </thead>
                     <tbody>
                         <% 
-                            for(Stylematiere stym: listestylematiere){ %>
+                            List<String> uniqueName = new ArrayList<>();
+                            for(Quantitematiere stym: quantiteMatiere){        
+                                if(!uniqueName.contains(stym.getNommeuble())){
+                                uniqueName.add(stym.getNommeuble());
+                        %>
                                 <tr>
-                                    <td><%=stym.getMatiere().getNom() %></td>
+                                    <td><%=stym.getNommeuble() %></td>
                                 </tr>
-                        <% } %>
+                                
+                        <%      } 
+                            }
+                        %>
                       
                     </tbody>
                   </table>

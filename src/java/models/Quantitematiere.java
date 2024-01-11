@@ -166,6 +166,8 @@ public class Quantitematiere extends BDDObject {
         return liste[0];
     }
     
+    
+    
     public static Quantitematiere findByIdmeubleIdvolumeIdmatiere(int idmeuble, int idvolume, int idmatiere, Connection co)throws Exception{
         Quantitematiere[] liste = new Quantitematiere().find("idmeuble="+idmeuble+" and idvolume="+idvolume+" and idmatiere="+idmatiere, co);
         if(liste.length==0){
