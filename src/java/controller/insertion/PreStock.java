@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.liste;
+package controller.insertion;
 
 import connexion.Connexion;
 import java.io.IOException;
@@ -12,14 +12,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Style;
-import models.Stylematiere;
+import models.Matiere;
 
 /**
  *
  * @author Sahy
  */
-public class PreListeMatiereStyle extends HttpServlet {
+public class PreStock extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,9 +37,9 @@ public class PreListeMatiereStyle extends HttpServlet {
         Connexion co = new Connexion();
         try{
             co.openAll();
-            Stylematiere[] listestylemat = new Stylematiere().find("idstyle="+request.getParameter("idstyle"), co.getConnectionPostgres());
-            request.setAttribute("listestylematiere", listestylemat);
-            this.getServletContext().getRequestDispatcher("/Liste/listeMatiereStyle.jsp").forward(request, response);
+            Matiere[] listematiere = new Matiere().find("idmatiere>0", co.getConnectionPostgres());
+            request.setAttribute("listematiere", listematiere);
+            this.getServletContext().getRequestDispatcher("/Insertion/Stock.jsp").forward(request, response);
         }catch(Exception ex){
             ex.printStackTrace();
             out.print(ex);
