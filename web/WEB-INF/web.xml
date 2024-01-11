@@ -48,6 +48,10 @@
         <servlet-name>ListParMatiere</servlet-name>
         <servlet-class>controller.liste.ListParMatiere</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PreListParMatiere</servlet-name>
+        <servlet-class>controller.liste.PreListParMatiere</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Test</servlet-name>
         <url-pattern>/Test</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>ListParMatiere</servlet-name>
         <url-pattern>/ListParMatiere</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreListParMatiere</servlet-name>
+        <url-pattern>/PreListParMatiere</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
