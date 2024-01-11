@@ -1,25 +1,21 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package controller.liste;
 
-import connexion.Connexion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Style;
-import models.Stylematiere;
 
 /**
  *
- * @author Sahy
+ * @author RdjcMada
  */
-public class PreListeMatiereStyle extends HttpServlet {
+public class ListParMatiere extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,25 +29,17 @@ public class PreListeMatiereStyle extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
-        Connexion co = new Connexion();
-        try{
-            co.openAll();
-            Stylematiere[] listestylemat = new Stylematiere().find("idstyle="+request.getParameter("idstyle"), co.getConnectionPostgres());
-            request.setAttribute("listestylematiere", listestylemat);
-            this.getServletContext().getRequestDispatcher("/Liste/listeMatiereStyle.jsp").forward(request, response);
-        }catch(Exception ex){
-            ex.printStackTrace();
-            out.print(ex);
-            out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
-        }finally{
-            try{
-                co.closeAll();
-            }catch(Exception e){
-                e.printStackTrace();
-                out.print(e);
-            }
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ListParMatiere</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ListParMatiere at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

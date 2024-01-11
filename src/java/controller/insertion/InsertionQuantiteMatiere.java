@@ -1,9 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.liste;
+package controller.insertion;
 
 import connexion.Connexion;
 import java.io.IOException;
@@ -12,14 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Style;
-import models.Stylematiere;
+import models.Quantitematiere;
 
 /**
  *
  * @author Sahy
  */
-public class PreListeMatiereStyle extends HttpServlet {
+public class InsertionQuantiteMatiere extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,13 +32,19 @@ public class PreListeMatiereStyle extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
         Connexion co = new Connexion();
         try{
+            ///getData
+            int idmeuble = Integer.parseInt(request.getParameter("idmeuble"));
+            int idstyle = Integer.parseInt(request.getParameter("idstyle"));
+            int idvolume = Integer.parseInt(request.getParameter("idvolume"));
+            int idmatiere = Integer.parseInt(request.getParameter("idmatiere"));
+            int quantite = Integer.parseInt(request.getParameter("quantite"));
             co.openAll();
-            Stylematiere[] listestylemat = new Stylematiere().find("idstyle="+request.getParameter("idstyle"), co.getConnectionPostgres());
-            request.setAttribute("listestylematiere", listestylemat);
-            this.getServletContext().getRequestDispatcher("/Liste/listeMatiereStyle.jsp").forward(request, response);
+            Quantitematiere cat = new Quantitematiere(0,idmeuble,idvolume,idmatiere,quantite);
+            cat.insert(co.getConnectionPostgres());
+            out.println("<h3>Quantité matière inserée<h3>");
+            out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
         }catch(Exception ex){
             ex.printStackTrace();
             out.print(ex);

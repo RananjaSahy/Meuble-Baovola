@@ -36,7 +36,7 @@
               <h5 class="card-title">Insertion quantité </h5>
 
               <!-- General Form Elements -->
-              <form action="${pageContext.request.contextPath}/InsertionStyle" method="get">
+              <form action="${pageContext.request.contextPath}/InsertionQuantiteMatiere" method="get">
                 <div class="row mb-3 mt-2">
                   <label for="inputText" class="col-form-label offset-1 h3">Catégorie</label>
                   <div class=" offset-1 col-sm-10" id="meuble">
