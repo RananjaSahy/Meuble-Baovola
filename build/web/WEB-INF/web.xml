@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>Test</servlet-name>
-        <servlet-class>controller.insertion.Test</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>InsertionMatiere</servlet-name>
         <servlet-class>controller.insertion.InsertionMatiere</servlet-class>
     </servlet>
@@ -56,10 +52,14 @@
         <servlet-name>ListParMatiere</servlet-name>
         <servlet-class>controller.liste.ListParMatiere</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>Test</servlet-name>
-        <url-pattern>/Test</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>PreInsertionFabrication</servlet-name>
+        <servlet-class>controller.insertion.PreInsertionFabrication</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertionFabrication</servlet-name>
+        <servlet-class>controller.insertion.InsertionFabrication</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InsertionMatiere</servlet-name>
         <url-pattern>/InsertionMatiere</url-pattern>
@@ -112,7 +112,14 @@
         <servlet-name>ListParMatiere</servlet-name>
         <url-pattern>/ListParMatiere</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>PreInsertionFabrication</servlet-name>
+        <url-pattern>/PreInsertionFabrication</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertionFabrication</servlet-name>
+        <url-pattern>/InsertionFabrication</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

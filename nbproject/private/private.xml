@@ -3,16 +3,41 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/volume.jsp</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Layout/header.jsp</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/categorieInsertion.jsp</file>
-            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/quantiteMatiere.jsp</file>
-            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionMatiere.java</file>
-            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/PreInsertionQuantiteMatiere.java</file>
-            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionCategorie.java</file>
-            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/Template.sql</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/models/Volume.java</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/generalbdd/BDDObject.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/Meuble.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/connexion/Connexion.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/fabrication.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/utilitaires/Util.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/models/Stylematiere.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionFabrication.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionMatiere.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/PreInsertionFabrication.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/models/Fabrication.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionStyle.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionMeuble.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Liste/listeMatiereStyle.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/liste/PreListParMatiere.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/matiereInsertion.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionQuantiteMatiere.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/quantiteMatiere.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/models/Matiere.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/PreInsertionQuantiteMatiere.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/Template.sql</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/liste/PreListeStyle.java</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/PreInsertionStyle.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/liste/PreListeMatiereStyle.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/models/Meuble.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/models/Quantitematiere.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionCategorie.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Liste/listeStyle.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/META-INF/context.xml</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/PreInsertionMeuble.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/liste/ListParMatiere.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionVolume.java</file>
         </group>
     </open-files>
 </project-private>

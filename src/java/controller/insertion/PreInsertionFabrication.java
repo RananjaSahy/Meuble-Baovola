@@ -1,26 +1,24 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.liste;
+package controller.insertion;
 
 import connexion.Connexion;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.Quantitematiere;
-
+import models.Meuble;
+import models.Volume;
 
 /**
  *
  * @author Sahy
  */
-public class ListParMatiere extends HttpServlet {
+public class PreInsertionFabrication extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,25 +33,25 @@ public class ListParMatiere extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+
         Connexion co = new Connexion();
-        try{
-            ///data 
-            int idmatiere = Integer.parseInt(request.getParameter("idmatiere"));
-            
-            ///Treatment
+        try {
             co.openAll();
-            Quantitematiere[] qttMatiere = new Quantitematiere().findByIdMatiere(idmatiere, co.getConnectionPostgres());
-            
-            request.setAttribute("qttMatiere", qttMatiere);
-            this.getServletContext().getRequestDispatcher("/Liste/listParMatiere.jsp").forward(request, response);
-        }catch(Exception ex){
+
+            Meuble[] meubles = new Meuble().find("idmeuble>0", co.getConnectionPostgres());
+            Volume[] volumes = new Volume().find("idvolume>0", co.getConnectionPostgres());
+            request.setAttribute("meubles", meubles);
+            request.setAttribute("volumes", volumes);
+
+            this.getServletContext().getRequestDispatcher("/Insertion/fabrication.jsp").forward(request, response);
+        } catch (Exception ex) {
             ex.printStackTrace();
             out.print(ex);
             out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
-        }finally{
-            try{
+        } finally {
+            try {
                 co.closeAll();
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
                 out.print(e);
             }

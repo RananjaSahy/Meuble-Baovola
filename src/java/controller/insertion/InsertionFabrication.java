@@ -1,26 +1,24 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.liste;
+package controller.insertion;
 
 import connexion.Connexion;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.Quantitematiere;
-
+import models.Fabrication;
+import models.Meuble;
 
 /**
  *
  * @author Sahy
  */
-public class ListParMatiere extends HttpServlet {
+public class InsertionFabrication extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,15 +35,14 @@ public class ListParMatiere extends HttpServlet {
         PrintWriter out = response.getWriter();
         Connexion co = new Connexion();
         try{
-            ///data 
-            int idmatiere = Integer.parseInt(request.getParameter("idmatiere"));
-            
-            ///Treatment
+            String idmeuble = request.getParameter("idmeuble");
+            String idvolume = request.getParameter("idvolume");
+            String quantite = request.getParameter("quantite");
             co.openAll();
-            Quantitematiere[] qttMatiere = new Quantitematiere().findByIdMatiere(idmatiere, co.getConnectionPostgres());
-            
-            request.setAttribute("qttMatiere", qttMatiere);
-            this.getServletContext().getRequestDispatcher("/Liste/listParMatiere.jsp").forward(request, response);
+            Fabrication fab = new Fabrication(0,utilitaires.Util.DateNow(),Integer.parseInt(idmeuble),Integer.parseInt(idvolume),Double.parseDouble(quantite));
+            fab.insert(co.getConnectionPostgres());
+            out.println("<h3>Fabrication inserée<h3>");
+            out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
         }catch(Exception ex){
             ex.printStackTrace();
             out.print(ex);
