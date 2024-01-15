@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
@@ -152,5 +153,15 @@ public class Util {
             }
         }
         return liste;
+    }
+    
+    public static java.sql.Date DateNow(){
+        // Obtenez la date actuelle à l'aide de Calendar
+        Calendar calendar = Calendar.getInstance();
+        java.util.Date currentDate = calendar.getTime();
+
+        // Convertissez la date actuelle en java.sql.Date
+        java.sql.Date sqlDate = new java.sql.Date(currentDate.getTime());
+        return sqlDate;
     }
 }

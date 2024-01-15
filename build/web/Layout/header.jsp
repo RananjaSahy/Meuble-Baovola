@@ -122,6 +122,11 @@
                                 <i class="bi bi-circle"></i><span> Stock </span>
                             </a>
                         </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/PreInsertionFabrication">
+                                <i class="bi bi-circle"></i><span> Fabrication </span>
+                            </a>
+                        </li>
 
                     </ul>
                 </li>
