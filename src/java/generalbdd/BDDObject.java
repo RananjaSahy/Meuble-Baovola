@@ -139,6 +139,8 @@ public class BDDObject {
             Object val = null;
             for (int i = 0; i < metadata.getColumnCount(); i++) {
                 Field champ = this.getAttribut(metadata.getColumnName(i + 1));
+                System.out.println(champ.getName()+" : ");
+                
                 champ.setAccessible(true);
                 val = champ.get(this);
                 values = this.putOnValue(values, val, champ);

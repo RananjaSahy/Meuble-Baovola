@@ -113,7 +113,13 @@
 
                         <li>
                             <a href="${pageContext.request.contextPath}/PreInsertionQuantiteMatiere">
-                                <i class="bi bi-circle"></i><span> Quantité Matière </span>
+                                <i class="bi bi-circle"></i><span> Quantité Matiere </span>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="${pageContext.request.contextPath}/PreStock">
+                                <i class="bi bi-circle"></i><span> Stock </span>
                             </a>
                         </li>
                         <li>
