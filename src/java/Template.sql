@@ -54,6 +54,23 @@ create table quantitematiere(
     quantite double precision
 );
 
+create table mouvementstock(
+    idmouvementstock serial primary key,
+    date date,
+    idmatiere int references matiere(idmatiere),
+    quantite double  precision,
+    typemouvement int
+);
+
+
+create table fabrication(
+    idfabrication serial primary key,
+    date date,
+    idmeuble int references meuble(idmeuble),
+    idvolume int references volume(idvolume),
+    quantite double precision
+);
+
 
 create or replace view v_quantitematiere as(
     select quantitematiere.*,meuble.nom as nommeuble,volume.nom as nomvolume,matiere.nom as nommatiere,matiere.prixunitaire, (matiere.prixunitaire*quantitematiere.quantite) as total from quantitematiere
@@ -64,4 +81,15 @@ create or replace view v_quantitematiere as(
 
 create or replace view meublevolume as(
     select idmeuble,nommeuble,idvolume,nomvolume,sum(total) as prixfabrication from v_quantitematiere group by idmeuble,idvolume,nommeuble,nomvolume order by idmeuble
+);
+
+create or replace view v_mouvementstock as(
+    select mouvementstock.*,matiere.nom as nommatiere,matiere.prixunitaire from mouvementstock
+    join matiere on mouvementstock.idmatiere = matiere.idmatiere
+);
+
+create or replace view v_fabrication as(
+    select fabrication.*,meuble.nom as nommeuble, volume.nom as nomvolume from fabrication
+    join meuble on fabrication.idmeuble = meuble.idmeuble
+    join volume on fabrication.idvolume = volume.idvolume
 );
