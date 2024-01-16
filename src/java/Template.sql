@@ -25,7 +25,8 @@ create table categorie(
 
 create table volume(
     idvolume serial primary key,
-    nom varchar(50) unique-- petite --moyenne --grande
+    nom varchar(50) unique,-- petite --moyenne --grande
+    multiisa int
 );
 
 create table style(
