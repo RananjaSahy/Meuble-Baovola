@@ -25,7 +25,8 @@ create table categorie(
 
 create table volume(
     idvolume serial primary key,
-    nom varchar(50) unique-- petite --moyenne --grande
+    nom varchar(50) unique,-- petite --moyenne --grande
+    multiisa int
 );
 
 create table style(
@@ -84,7 +85,7 @@ create or replace view meublevolume as(
 );
 
 create or replace view v_mouvementstock as(
-    select mouvementstock.*,matiere.nom as nommatiere,matiere.prixunitaire from mouvementstock
+    select mouvementstock.*,matiere.nom as nommatiere,matiere.prixunitaire,matiere.prixunitaire*mouvementstock.quantite as prixmouvement  from mouvementstock
     join matiere on mouvementstock.idmatiere = matiere.idmatiere
 );
 

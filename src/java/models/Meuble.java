@@ -114,5 +114,9 @@ public class Meuble extends BDDObject{
         return cats[0];
     }
     
+    public Style getStyle(Connection co)throws Exception{
+        return Style.findById(this.getIdstyle(), co);
+    }
+    
     
 }

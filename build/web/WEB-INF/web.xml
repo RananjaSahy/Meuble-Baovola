@@ -9,6 +9,10 @@
         <servlet-class>controller.insertion.InsertionStyle</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>PreInsertionMeuble</servlet-name>
+        <servlet-class>controller.insertion.PreInsertionMeuble</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>PreInsertionStyle</servlet-name>
         <servlet-class>controller.insertion.PreInsertionStyle</servlet-class>
     </servlet>
@@ -84,6 +88,10 @@
     <servlet-mapping>
         <servlet-name>PreInsertionStyle</servlet-name>
         <url-pattern>/PreInsertionStyle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreInsertionMeuble</servlet-name>
+        <url-pattern>/PreInsertionMeuble</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PreListeStyle</servlet-name>

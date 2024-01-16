@@ -9,10 +9,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.time.LocalDate;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import models.Mouvementstock;
 
 /**
@@ -47,12 +47,11 @@ public class InsertionMouvementStock extends HttpServlet {
             Date date = Date.valueOf(localDate);
             //out.print(date);
             //out.print(qtt);
-            out.print(idMatieres);
             
             co.openAll();
             Mouvementstock cat = new Mouvementstock(0,idMatieres,date, qtt, 1);
             cat.insert(co.getConnectionPostgres());
-            out.println("<h3>Quantité matière inserée<h3>");
+            out.println("<h3>Entrée inserée<h3>");
             out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
         }catch(Exception ex){
             ex.printStackTrace();

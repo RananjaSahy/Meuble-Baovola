@@ -190,6 +190,9 @@ public class Quantitematiere extends BDDObject {
         return liste[0];
     }
     
+    public static Quantitematiere[] findByIdMeubleIdvolume(int idmeuble, int idvolume, Connection co)throws Exception{
+        return new Quantitematiere().find("idmeuble="+idmeuble+" and idvolume="+idvolume, co);
+    }
     
     
     public static Quantitematiere findByIdmeubleIdvolumeIdmatiere(int idmeuble, int idvolume, int idmatiere, Connection co)throws Exception{
@@ -203,6 +206,11 @@ public class Quantitematiere extends BDDObject {
     public void isInserable(Connection co)throws Exception{
         if(Quantitematiere.findByIdmeubleIdvolumeIdmatiere(this.getIdmeuble(),this.getIdvolume(),this.getIdmatiere(), co)!=null){
             throw new Exception("Quantitematiere deja existant");
+        }
+        Meuble meuble = Meuble.findById(this.getIdmeuble(), co);
+        Stylematiere stymat = Stylematiere.findByIdstyleIdmatiere(meuble.getIdstyle(), this.getIdmatiere(), co);
+        if(stymat==null){
+            throw new Exception("Style et matiere ne correspondent pas");
         }
     }
     

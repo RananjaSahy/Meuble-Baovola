@@ -45,7 +45,7 @@
                 </div>
                                    
                  <div class="row mb-3 mt-5">
-                  <label for="inputText" class="col-form-label offset-1 h3">Quantitée </label>
+                  <label for="inputText" class="col-form-label offset-1 h3">Quantité </label>
                   <div class=" offset-1 col-sm-10">
                     <input type="number" min='0' class="form-control" placeholder="Entrer la quantite de matière" name="qtt">
                   </div>

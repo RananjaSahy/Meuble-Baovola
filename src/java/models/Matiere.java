@@ -26,6 +26,8 @@ public class Matiere extends BDDObject{
     private String nom;
     @Column(name = "prixunitaire")
     private double prixunitaire;
+    private double enstock;
+    
     public int getIdmatiere() {
         return idmatiere;
     }
@@ -55,6 +57,11 @@ public class Matiere extends BDDObject{
     public void setPrixunitaire(double prixunitaire) {
         this.prixunitaire = prixunitaire;
     }
+
+    public double getEnstock() {
+        return enstock;
+    }
+ 
     
     
     public Matiere(){
@@ -87,5 +94,19 @@ public class Matiere extends BDDObject{
         return matieres[0];
     }
     
+    public Mouvementstock[] getAllEntree(Connection co)throws Exception{
+        return Mouvementstock.findEntreeByIdmatiere(this.getIdmatiere(), co);
+    }
+    
+    public Mouvementstock[] getAllSortie(Connection co)throws Exception{
+        return Mouvementstock.findSortieByIdmatiere(idmatiere, co);
+    }
+    
+    public double getQuantiteReste(Connection co)throws Exception{
+        double quantiteentree = Mouvementstock.getQuantiteTotal(this.getAllEntree(co));
+        double quantitesortie = Mouvementstock.getQuantiteTotal(this.getAllSortie(co));
+        this.enstock =  quantiteentree - quantitesortie;
+        return this.getEnstock();
+    }
     
 }

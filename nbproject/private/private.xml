@@ -5,18 +5,17 @@
         <group>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/volume.jsp</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Layout/header.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/test.sql</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/categorieInsertion.jsp</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/models/Volume.java</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/generalbdd/BDDObject.java</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/Meuble.jsp</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/connexion/Connexion.java</file>
-            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/fabrication.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/liste/MeublePrixFabrication.java</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/utilitaires/Util.java</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/models/Stylematiere.java</file>
-            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionFabrication.java</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionMatiere.java</file>
-            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/PreInsertionFabrication.java</file>
-            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/models/Fabrication.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/WEB-INF/web.xml</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionStyle.java</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionMeuble.java</file>
             <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Liste/listeMatiereStyle.jsp</file>
