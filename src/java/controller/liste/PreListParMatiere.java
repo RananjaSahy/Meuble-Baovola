@@ -7,10 +7,10 @@ package controller.liste;
 import connexion.Connexion;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import models.Matiere;
 
 /**
@@ -37,6 +37,9 @@ public class PreListParMatiere extends HttpServlet {
         try{
             co.openAll();
             Matiere[] matieres = new Matiere().find("idmatiere>0", co.getConnectionPostgres());
+            for(Matiere mat : matieres){
+                double bla = mat.getQuantiteReste(co.getConnectionPostgres());
+            }
             request.setAttribute("matieres", matieres);
             this.getServletContext().getRequestDispatcher("/Liste/preListParMatiere.jsp").forward(request, response);
         }catch(Exception ex){

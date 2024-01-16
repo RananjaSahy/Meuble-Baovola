@@ -139,5 +139,32 @@ public class Fabrication extends BDDObject {
 
     }
     
+    public Quantitematiere[] getAllQuantitematiere(Connection co)throws Exception{
+        return Quantitematiere.findByIdMeubleIdvolume(this.getIdmeuble(), this.getIdvolume(), co);
+    }
+    
+    @Override
+    public void insert(Connection co)throws Exception{
+        try{
+            co.setAutoCommit(false);
+            Quantitematiere[] liste = Quantitematiere.findByIdMeubleIdvolume(this.getIdmeuble(), this.getIdvolume(), co);
+            for(Quantitematiere qm : liste){
+                Mouvementstock mv = new Mouvementstock(0, qm.getIdmatiere(), utilitaires.Util.DateNow(), qm.getQuantite()*this.getQuantite(), 2);
+                mv.insert(co);
+            }
+            super.insert(co);
+            co.commit();
+        }catch(Exception ex){
+            try{
+                co.rollback();
+            }catch(Exception e){
+                throw e;
+            }
+            throw ex;
+            
+        }finally{
+            co.setAutoCommit(true);
+        }
+    }
     
 }

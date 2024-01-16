@@ -84,7 +84,7 @@ create or replace view meublevolume as(
 );
 
 create or replace view v_mouvementstock as(
-    select mouvementstock.*,matiere.nom as nommatiere,matiere.prixunitaire from mouvementstock
+    select mouvementstock.*,matiere.nom as nommatiere,matiere.prixunitaire,matiere.prixunitaire*mouvementstock.quantite as prixmouvement  from mouvementstock
     join matiere on mouvementstock.idmatiere = matiere.idmatiere
 );
 
