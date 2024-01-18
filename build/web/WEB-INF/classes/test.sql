@@ -14,9 +14,9 @@ insert into matiere values(default,'metal',3000);
 insert into categorie values(default,'canape');
 insert into categorie values(default,'chaise');
 
-insert into volume values(default,'petit');
-insert into volume values(default,'moyen');
-insert into volume values(default,'grand');
+insert into volume values(default,'petit',1);
+insert into volume values(default,'moyen',2);
+insert into volume values(default,'grand',4);
 
 insert into style values(default,'boheme');
 insert into style values(default,'royal');
@@ -27,7 +27,7 @@ insert into stylematiere values(default,2,2);
 insert into stylematiere values(default,2,3);
 
 insert into meuble values(default,'sahy',1,1);
-insert into meuble values(default,'sarobidy',1,1);
+insert into meuble values(default,'sarobidy',1,2);
 
 insert into quantitematiere values(default,1,1,1,3);
 insert into quantitematiere values(default,1,1,3,1);
@@ -38,4 +38,8 @@ insert into quantitematiere values(default,2,1,3,2);
 insert into quantitematiere values(default,2,2,2,8);
 insert into quantitematiere values(default,2,2,3,5);
 
+insert into typempiasa values(default,'ouvrier',1000);
+insert into typempiasa values(default,'expert-ouvrier',2000);
 
+insert into maindoeuvre values(default,1,1,2,2);
+insert into maindoeuvre values(default,1,2,1,1);

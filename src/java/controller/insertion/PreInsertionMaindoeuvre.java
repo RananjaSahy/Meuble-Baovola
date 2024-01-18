@@ -11,18 +11,18 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.Categorie;
-import models.Matiere;
+import models.Maindoeuvre;
 import models.Meuble;
-import models.Quantitematiere;
+import models.MeubleVolume;
 import models.Style;
+import models.Typempiasa;
 import models.Volume;
 
 /**
  *
  * @author Sahy
  */
-public class PreInsertionQuantiteMatiere extends HttpServlet {
+public class PreInsertionMaindoeuvre extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,28 +37,27 @@ public class PreInsertionQuantiteMatiere extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
+        
         Connexion co = new Connexion();
-        try {
+        try{
             co.openAll();
-            Quantitematiere[] quantitematieres = new Quantitematiere().find("idquantitematiere>0", co.getConnectionPostgres());
-            Meuble[] meubles = new Meuble().find("idmeuble>0", co.getConnectionPostgres());
-            Volume[] volumes = new Volume().find("idvolume>0", co.getConnectionPostgres());
-            Matiere[] matieres = new Matiere().find("idmatiere>0", co.getConnectionPostgres());
+            Maindoeuvre[] maindoeuvres = new Maindoeuvre().find("idmaindoeuvre>0", co.getConnectionPostgres());
+            Style[] styles = new Style().find("idstyle>0", co.getConnectionPostgres());
+            Typempiasa[] typempiasas = new Typempiasa().find("idtypempiasa>0", co.getConnectionPostgres());
             
-            request.setAttribute("quantitematieres", quantitematieres);
-            request.setAttribute("meubles", meubles);
-            request.setAttribute("volumes", volumes);
-            request.setAttribute("matieres", matieres);
-            this.getServletContext().getRequestDispatcher("/Insertion/quantiteMatiere.jsp").forward(request, response);
-        } catch (Exception ex) {
+            request.setAttribute("maindoeuvres", maindoeuvres);
+            request.setAttribute("styles", styles);
+            request.setAttribute("typempiasas", typempiasas);
+
+            this.getServletContext().getRequestDispatcher("/Insertion/maindoeuvre.jsp").forward(request, response);
+        }catch(Exception ex){
             ex.printStackTrace();
             out.print(ex);
             out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
-        } finally {
-            try {
+        }finally{
+            try{
                 co.closeAll();
-            } catch (Exception e) {
+            }catch(Exception e){
                 e.printStackTrace();
                 out.print(e);
             }

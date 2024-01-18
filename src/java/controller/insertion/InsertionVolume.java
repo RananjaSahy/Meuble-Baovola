@@ -36,8 +36,10 @@ public class InsertionVolume extends HttpServlet {
         Connexion co = new Connexion();
         try{
             String nom = request.getParameter("nom");
+            int multiisa = Integer.parseInt(request.getParameter("multiisa"));
             co.openAll();
             Volume volume = new Volume(nom);
+            volume.setMultiisa(multiisa);
             volume.insert(co.getConnectionPostgres());
             out.println("<h3>Volume inserée<h3>");
             out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
