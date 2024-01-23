@@ -11,18 +11,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.Categorie;
-import models.Matiere;
-import models.Meuble;
-import models.Quantitematiere;
-import models.Style;
-import models.Volume;
+import models.Maindoeuvre;
+import models.Prixvente;
 
 /**
  *
  * @author Sahy
  */
-public class PreInsertionQuantiteMatiere extends HttpServlet {
+public class InsertionMaindoeuvre extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,28 +33,26 @@ public class PreInsertionQuantiteMatiere extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
         Connexion co = new Connexion();
-        try {
+        try{
             co.openAll();
-            Quantitematiere[] quantitematieres = new Quantitematiere().find("idquantitematiere>0", co.getConnectionPostgres());
-            Meuble[] meubles = new Meuble().find("idmeuble>0", co.getConnectionPostgres());
-            Volume[] volumes = new Volume().find("idvolume>0", co.getConnectionPostgres());
-            Matiere[] matieres = new Matiere().find("idmatiere>0", co.getConnectionPostgres());
-            
-            request.setAttribute("quantitematieres", quantitematieres);
-            request.setAttribute("meubles", meubles);
-            request.setAttribute("volumes", volumes);
-            request.setAttribute("matieres", matieres);
-            this.getServletContext().getRequestDispatcher("/Insertion/quantiteMatiere.jsp").forward(request, response);
-        } catch (Exception ex) {
+            int idstyle = Integer.parseInt(request.getParameter("idstyle"));
+            int idtypempiasa = Integer.parseInt(request.getParameter("idtypempiasa"));
+            double horaire = Double.parseDouble(request.getParameter("horaire"));
+            int isadefaut = Integer.parseInt(request.getParameter("isadefaut"));
+            co.openAll();
+            Maindoeuvre mo = new Maindoeuvre(0, idstyle, idtypempiasa, horaire, isadefaut);
+            mo.insert(co.getConnectionPostgres());
+            out.println("<h3>Main d'oeuvre inserée<h3>");
+            out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
+        }catch(Exception ex){
             ex.printStackTrace();
             out.print(ex);
             out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
-        } finally {
-            try {
+        }finally{
+            try{
                 co.closeAll();
-            } catch (Exception e) {
+            }catch(Exception e){
                 e.printStackTrace();
                 out.print(e);
             }

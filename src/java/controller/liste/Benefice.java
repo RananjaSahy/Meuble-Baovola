@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.insertion;
+package controller.liste;
 
 import connexion.Connexion;
 import java.io.IOException;
@@ -11,18 +11,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.Categorie;
-import models.Matiere;
-import models.Meuble;
-import models.Quantitematiere;
+import models.MeubleVolume;
 import models.Style;
-import models.Volume;
 
 /**
  *
  * @author Sahy
  */
-public class PreInsertionQuantiteMatiere extends HttpServlet {
+public class Benefice extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,28 +33,24 @@ public class PreInsertionQuantiteMatiere extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
+        
         Connexion co = new Connexion();
-        try {
+        try{
             co.openAll();
-            Quantitematiere[] quantitematieres = new Quantitematiere().find("idquantitematiere>0", co.getConnectionPostgres());
-            Meuble[] meubles = new Meuble().find("idmeuble>0", co.getConnectionPostgres());
-            Volume[] volumes = new Volume().find("idvolume>0", co.getConnectionPostgres());
-            Matiere[] matieres = new Matiere().find("idmatiere>0", co.getConnectionPostgres());
+            double beneficemin = Double.parseDouble(request.getParameter("beneficemin"));
+            double beneficemax = Double.parseDouble(request.getParameter("beneficemax"));
             
-            request.setAttribute("quantitematieres", quantitematieres);
-            request.setAttribute("meubles", meubles);
-            request.setAttribute("volumes", volumes);
-            request.setAttribute("matieres", matieres);
-            this.getServletContext().getRequestDispatcher("/Insertion/quantiteMatiere.jsp").forward(request, response);
-        } catch (Exception ex) {
+            MeubleVolume[] mv = MeubleVolume.find("where benefice>="+beneficemin+" and benefice<="+beneficemax+" order by benefice" , co.getConnectionPostgres());
+            request.setAttribute("meublevolumes", mv);
+            this.getServletContext().getRequestDispatcher("/Liste/benefice.jsp").forward(request, response);
+        }catch(Exception ex){
             ex.printStackTrace();
             out.print(ex);
             out.print("<a href='Layout/index.jsp'>Retour a l'accueil</a>");
-        } finally {
-            try {
+        }finally{
+            try{
                 co.closeAll();
-            } catch (Exception e) {
+            }catch(Exception e){
                 e.printStackTrace();
                 out.print(e);
             }

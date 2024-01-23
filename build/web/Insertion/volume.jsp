@@ -16,7 +16,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Layout/index.jsp">Accueil</a></li>
-          <li class="breadcrumb-item active">Style</li>
+          <li class="breadcrumb-item active">Volume</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -27,7 +27,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Insertion Style</h5>
+              <h5 class="card-title">Insertion Volume</h5>
 
               <!-- General Form Elements -->
               <form action="${pageContext.request.contextPath}/InsertionVolume" method="get">
@@ -36,6 +36,13 @@
                   <label for="inputText" class="col-form-label offset-1 h3">Nom</label>
                   <div class=" offset-1 col-sm-10">
                       <input type="text" class="form-control" placeholder="Entrer le nom" name="nom">
+                  </div>
+                </div>
+                  
+                 <div class="row mb-3 mt-5">
+                  <label for="inputText" class="col-form-label offset-1 h3"> Multiplication isa mpiasa </label>
+                  <div class=" offset-1 col-sm-10">
+                      <input type="numbre" min="0" class="form-control" placeholder="Entrer la valeur" name="multiisa">
                   </div>
                 </div>
                   

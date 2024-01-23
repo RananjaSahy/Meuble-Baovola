@@ -127,6 +127,22 @@
                                 <i class="bi bi-circle"></i><span> Fabrication </span>
                             </a>
                         </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/PrePrixVente">
+                                <i class="bi bi-circle"></i><span> Prix de vente </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/Insertion/typempiasa.jsp">
+                                <i class="bi bi-circle"></i><span> Type mpiasa </span>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="${pageContext.request.contextPath}/PreInsertionMaindoeuvre">
+                                <i class="bi bi-circle"></i><span> Main d'oeuvre </span>
+                            </a>
+                        </li>
 
                     </ul>
                 </li>
@@ -152,6 +168,14 @@
 
                             </a>
                         </li>
+                        
+                        <li>
+                            <a href="${pageContext.request.contextPath}/Liste/formBenefice.jsp">
+                                <i class="bi bi-circle"></i><span>Liste par bénéfice</span>
+
+                            </a>
+                        </li>
+                        
                     </ul>
                 </li>
 

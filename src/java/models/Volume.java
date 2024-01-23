@@ -26,6 +26,8 @@ public class Volume extends BDDObject{
     private int idvolume;
     @Column(name = "nom")
     private String nom;
+    @Column (name = "multiisa")
+    private int multiisa;
 
     
     public int getIdvolume() {
@@ -49,7 +51,16 @@ public class Volume extends BDDObject{
         this.nom = nom;
     }
  
+    public void setMultiisa(int nMultiisa)throws Exception{
+        if(nMultiisa  < 0){
+            throw new Exception("multiisa negative");
+        }
+        this.multiisa = nMultiisa;
+    }
     
+    public int getMultiisa(){
+        return this.multiisa;
+    }
     
     public Volume(){
         

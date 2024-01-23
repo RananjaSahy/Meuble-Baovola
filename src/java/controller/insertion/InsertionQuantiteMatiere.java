@@ -36,7 +36,6 @@ public class InsertionQuantiteMatiere extends HttpServlet {
         try{
             ///getData
             int idmeuble = Integer.parseInt(request.getParameter("idmeuble"));
-            int idstyle = Integer.parseInt(request.getParameter("idstyle"));
             int idvolume = Integer.parseInt(request.getParameter("idvolume"));
             int idmatiere = Integer.parseInt(request.getParameter("idmatiere"));
             int quantite = Integer.parseInt(request.getParameter("quantite"));
