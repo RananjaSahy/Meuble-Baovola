@@ -39,7 +39,7 @@ insert into quantitematiere values(default,2,2,2,8);
 insert into quantitematiere values(default,2,2,3,5);
 
 insert into typempiasa values(default,'ouvrier',1000);
-insert into typempiasa values(default,'expert-ouvrier',2000);
+insert into typempiasa values(default,'consultant',2000);
 
 insert into maindoeuvre values(default,1,1,2,2);
 insert into maindoeuvre values(default,1,2,1,1);
