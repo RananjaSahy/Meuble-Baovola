@@ -67,7 +67,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Insertion prix de vente </h5>
+                        <h5 class="card-title">Insertion main d'oeuvre</h5>
 
                         <!-- General Form Elements -->
                         <form action="${pageContext.request.contextPath}/InsertionMaindoeuvre" method="get">
