@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
 /**
@@ -163,5 +165,17 @@ public class Util {
         // Convertissez la date actuelle en java.sql.Date
         java.sql.Date sqlDate = new java.sql.Date(currentDate.getTime());
         return sqlDate;
+    }
+    
+    public static double differenceEnAnnees(java.sql.Date date1, java.sql.Date date2) {
+        // Conversion de java.sql.Date en java.time.LocalDate
+        LocalDate localDate1 = date1.toLocalDate();
+        LocalDate localDate2 = date2.toLocalDate();
+
+        // Calcul de la différence en jours
+        long differenceEnJours = ChronoUnit.DAYS.between(localDate1, localDate2);
+
+        // Calcul de la différence en années
+        return differenceEnJours / 365;
     }
 }

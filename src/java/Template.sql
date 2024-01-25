@@ -87,6 +87,27 @@ create table typempiasa(
     salaireheure double precision
 );
 
+create table profil(
+    idprofil serial primary key,
+    nom varchar(30),
+    annee int,
+    tauxhoraire double precision
+);
+
+
+create table personne(
+    idpersonne serial primary key,
+    nom varchar(50),
+    dateentree date,
+    idtypempiasa int references typempiasa(idtypempiasa)
+);
+
+create or replace view v_personne as (
+    select personne.*, typempiasa.nom as nomtypempiasa, typempiasa.salaireheure from personne
+    join typempiasa on typempiasa.idtypempiasa = personne.idtypempiasa
+);
+
+
 create table maindoeuvre(
     idmaindoeuvre serial primary key,
     idstyle int references style(idstyle),

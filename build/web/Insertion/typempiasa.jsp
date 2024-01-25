@@ -22,7 +22,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Insertion Mpiasa</h5>
+              <h5 class="card-title">Insertion Type Mpiasa</h5>
 
               <!-- General Form Elements -->
               <form action="../InsertionTypempiasa" method="get">

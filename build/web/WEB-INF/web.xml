@@ -108,6 +108,18 @@
         <servlet-name>InsertionMaindoeuvre</servlet-name>
         <servlet-class>controller.insertion.InsertionMaindoeuvre</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InsertionProfil</servlet-name>
+        <servlet-class>controller.insertion.InsertionProfil</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PreInsertionPersonne</servlet-name>
+        <servlet-class>controller.insertion.PreInsertionPersonne</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertionPersonne</servlet-name>
+        <servlet-class>controller.insertion.InsertionPersonne</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InsertionMatiere</servlet-name>
         <url-pattern>/InsertionMatiere</url-pattern>
@@ -207,6 +219,18 @@
     <servlet-mapping>
         <servlet-name>InsertionMaindoeuvre</servlet-name>
         <url-pattern>/InsertionMaindoeuvre</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertionProfil</servlet-name>
+        <url-pattern>/InsertionProfil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreInsertionPersonne</servlet-name>
+        <url-pattern>/PreInsertionPersonne</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertionPersonne</servlet-name>
+        <url-pattern>/InsertionPersonne</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

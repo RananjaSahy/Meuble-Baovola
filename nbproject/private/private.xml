@@ -3,8 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/prixvente.jsp</file>
-            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/quantiteMatiere.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Layout/header.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/PreInsertionPersonne.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/models/Personne.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/utilitaires/Util.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/test.sql</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/profil.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/Template.sql</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionProfil.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/personne.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/web/Insertion/typempiasa.jsp</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/controller/insertion/InsertionPersonne.java</file>
+            <file>file:/D:/ITU/S5S3/Meuble-Baovola/src/java/models/Profil.java</file>
         </group>
     </open-files>
 </project-private>

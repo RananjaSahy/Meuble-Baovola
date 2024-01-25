@@ -143,7 +143,19 @@
                                 <i class="bi bi-circle"></i><span> Main d'oeuvre </span>
                             </a>
                         </li>
-
+                        
+                        <li>
+                            <a href="${pageContext.request.contextPath}/Insertion/profil.jsp">
+                                <i class="bi bi-circle"></i><span> Profil </span>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="${pageContext.request.contextPath}/PreInsertionPersonne">
+                                <i class="bi bi-circle"></i><span> Personne </span>
+                            </a>
+                        </li>
+                        
                     </ul>
                 </li>
                 <li class="nav-item">
