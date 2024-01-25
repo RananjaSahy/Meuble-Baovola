@@ -39,7 +39,8 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Nom meuble</th>                
+                                    <th>Nom meuble</th>  
+                                    <th>Volume</th>  
                                     <th>Matiere</th>
                                     <th>Quantite</th>
                                 </tr>
@@ -49,7 +50,8 @@
                             for(Quantitematiere qm : quantitematieres){ %>
                                 <tr>
                                     <td><%=qm.getIdquantitematiere()%></td>
-                                    <td><%=qm.getNommeuble()%></td>                
+                                    <td><%=qm.getNommeuble()%></td>   
+                                    <th><%=qm.getNomvolume()%></th> 
                                     <td><%=qm.getNommatiere()%></td>
                                     <td><%=qm.getQuantite()%></td>
                                 </tr>
