@@ -116,6 +116,37 @@ create table maindoeuvre(
     isadefaut int
 );
 
+create table genre(
+    idgenre serial primary key,
+    nom varchar(15)
+);
+
+create table client(
+    idclient serial primary key,
+    nom varchar(50),
+    idgenre int references genre(idgenre)    
+);
+
+create or replace view v_client as(
+    select client.*,genre.nom as nomgenre from client
+    join genre on client.idgenre = genre.idgenre
+);
+
+create table vente(
+    idvente serial primary key,
+    date date,
+    idmeuble int references meuble(idmeuble),
+    idvolume int references volume(idvolume),
+    idclient int references client(idclient),
+    quantite int
+);
+
+create or replace view v_vente as(
+    select vente.*,meuble.nom as nommeuble, volume.nom as nomvolume,v_client.idgenre, v_client.nom as nomclient, v_client.nomgenre  from vente
+    join meuble on meuble.idmeuble = vente.idmeuble
+    join volume on volume.idvolume = vente.idvolume
+    join v_client on v_client.idclient = vente.idclient
+);
 
 create or replace view v_quantitematiere as(
     select quantitematiere.*,meuble.nom as nommeuble,volume.nom as nomvolume,matiere.nom as nommatiere,matiere.prixunitaire, (matiere.prixunitaire*quantitematiere.quantite) as total from quantitematiere

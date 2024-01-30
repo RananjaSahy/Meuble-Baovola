@@ -16,7 +16,7 @@ import java.util.Arrays;
  *
  * @author Sahy
  */
-@Table(nom = "meuble")
+@Table(nom = "meuble", view="meuble")
 public class Meuble extends BDDObject{
     
     @PrimaryKey

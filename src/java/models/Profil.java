@@ -15,7 +15,7 @@ import java.util.Arrays;
  *
  * @author Sahy
  */
-@Table(nom = "profil")
+@Table(nom = "profil", view = "profil")
 public class Profil extends BDDObject{
     @PrimaryKey
     @Column(name = "idprofil")

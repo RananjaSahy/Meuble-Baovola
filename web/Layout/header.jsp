@@ -156,6 +156,18 @@
                             </a>
                         </li>
                         
+                        <li>
+                            <a href="${pageContext.request.contextPath}/PreClient">
+                                <i class="bi bi-circle"></i><span> Client </span>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="${pageContext.request.contextPath}/PreVente">
+                                <i class="bi bi-circle"></i><span> Vente </span>
+                            </a>
+                        </li>
+                        
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -185,6 +197,12 @@
                             <a href="${pageContext.request.contextPath}/Liste/formBenefice.jsp">
                                 <i class="bi bi-circle"></i><span>Liste par bénéfice</span>
 
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="${pageContext.request.contextPath}/PreStatistique">
+                                <i class="bi bi-circle"></i><span> Statistique </span>
                             </a>
                         </li>
                         

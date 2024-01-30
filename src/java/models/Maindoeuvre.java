@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author Sahy
  */
-@Table(nom = "maindoeuvre")
+@Table(nom = "maindoeuvre", view="v_maindoeuvre1")
 public class Maindoeuvre extends BDDObject {
 
     @PrimaryKey

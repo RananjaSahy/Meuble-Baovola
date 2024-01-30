@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author RdjcMada
  */
-@Table(nom = "mouvementstock")
+@Table(nom = "mouvementstock", view = "v_mouvementstock")
 public class Mouvementstock extends BDDObject {
     @PrimaryKey
     @Column(name = "idmouvementstock")

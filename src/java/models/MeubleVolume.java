@@ -28,6 +28,10 @@ public class MeubleVolume {
     private double prixrevient;
     private double prixvente;
     private double benefice;
+
+    public MeubleVolume() {
+        
+    }
     
      
     public int getIdmeuble() {

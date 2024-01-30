@@ -19,7 +19,7 @@ import java.util.List;
  *
  * @author Sahy
  */
-@Table(nom = "volume")
+@Table(nom = "volume", view = "volume")
 public class Volume extends BDDObject{
     @PrimaryKey
     @Column(name = "idvolume")
