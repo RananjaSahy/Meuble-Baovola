@@ -14,29 +14,29 @@ create database meuble;
 
 create table matiere(
     idmatiere serial primary key,
-    nom varchar(50) unique,
+    nom varchar(50) unique not null,
     prixunitaire double precision
 );
 
 create table categorie(
     idcategorie serial primary key,
-    nom varchar(50) unique
+    nom varchar(50) unique not null
 );
 
 create table volume(
     idvolume serial primary key,
-    nom varchar(50) unique,-- petite --moyenne --grande
+    nom varchar(50) unique not null,-- petite --moyenne --grande
     multiisa int
 );
 
 create table style(
     idstyle serial primary key,
-    nom varchar(50) unique
+    nom varchar(50) unique not null
 );
 
 create table meuble(
     idmeuble serial primary key,
-    nom varchar(50),
+    nom varchar(50) unique,
     idcategorie int references categorie(idcategorie),
     idstyle int references style(idstyle)
 );
