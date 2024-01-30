@@ -21,6 +21,9 @@ insert into volume values(default,'grand',4);
 insert into style values(default,'boheme');
 insert into style values(default,'royal');
 
+insert into genre values(default,'homme');
+insert into genre values(default,'femme');
+
 insert into stylematiere values(default,1,1);
 insert into stylematiere values(default,1,3);
 insert into stylematiere values(default,2,2);

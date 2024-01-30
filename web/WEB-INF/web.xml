@@ -124,6 +124,30 @@
         <servlet-name>InsertionPersonne</servlet-name>
         <servlet-class>controller.insertion.InsertionPersonne</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InsertionClient</servlet-name>
+        <servlet-class>controller.insertion.InsertionClient</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PreVente</servlet-name>
+        <servlet-class>controller.insertion.PreVente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertionVente</servlet-name>
+        <servlet-class>controller.insertion.InsertionVente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PreClient</servlet-name>
+        <servlet-class>controller.insertion.PreClient</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PreStatistique</servlet-name>
+        <servlet-class>controller.liste.PreStatistique</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Statistique</servlet-name>
+        <servlet-class>controller.liste.Statistique</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InsertionMatiere</servlet-name>
         <url-pattern>/InsertionMatiere</url-pattern>
@@ -239,6 +263,30 @@
     <servlet-mapping>
         <servlet-name>InsertionPersonne</servlet-name>
         <url-pattern>/InsertionPersonne</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertionClient</servlet-name>
+        <url-pattern>/InsertionClient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreVente</servlet-name>
+        <url-pattern>/PreVente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertionVente</servlet-name>
+        <url-pattern>/InsertionVente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreClient</servlet-name>
+        <url-pattern>/PreClient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreStatistique</servlet-name>
+        <url-pattern>/PreStatistique</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Statistique</servlet-name>
+        <url-pattern>/Statistique</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

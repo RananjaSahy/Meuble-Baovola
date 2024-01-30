@@ -19,7 +19,7 @@ import java.util.List;
  *
  * @author Sahy
  */
-@Table(nom = "stylematiere")
+@Table(nom = "stylematiere", view = "stylematiere")
 public class Stylematiere extends BDDObject{
     @PrimaryKey
     @Column(name = "idstylematiere")

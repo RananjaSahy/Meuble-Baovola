@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author Sahy
  */
-@Table(nom = "quantitematiere")
+@Table(nom = "quantitematiere", view = "v_quantitematiere")
 public class Quantitematiere extends BDDObject {
 
     @PrimaryKey
@@ -147,6 +147,7 @@ public class Quantitematiere extends BDDObject {
         this.setTotal(total);
     }
 
+    @Override
     public Quantitematiere[] find(String filtre, Connection co) throws Exception {
         Statement state = co.createStatement();
         List<Quantitematiere> valiny = new ArrayList<>();

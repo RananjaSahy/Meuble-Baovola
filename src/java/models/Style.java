@@ -16,7 +16,7 @@ import java.util.Arrays;
  *
  * @author Sahy
  */
-@Table(nom = "style")
+@Table(nom = "style", view = "style")
 public class Style extends BDDObject{
     @PrimaryKey
     @Column(name = "idstyle")

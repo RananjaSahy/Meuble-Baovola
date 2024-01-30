@@ -19,7 +19,7 @@ import java.util.List;
  *
  * @author Sahy
  */
-@Table(nom = "fabrication")
+@Table(nom = "fabrication", view="v_fabrication")
 public class Fabrication extends BDDObject {
 
     @PrimaryKey
